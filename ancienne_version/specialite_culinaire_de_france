@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:ns0="http://www.jyu.fi/ontology#">
+
+  <rdfs:Class rdf:about="http://www.jyu.fi/ontology#Region">
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://www.jyu.fi/ontology#SpecialiteCulinaire">
+  </rdfs:Class>
+
+  <rdf:Description rdf:about="http://www.jyu.fi/ontology#Plat">
+    <rdfs:subClassOf rdf:resource="http://www.jyu.fi/ontology#SpecialiteCulinaire"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.jyu.fi/ontology#Dessert">
+    <rdfs:subClassOf rdf:resource="http://www.jyu.fi/ontology#SpecialiteCulinaire"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.jyu.fi/ontology#ProduitDuTerroir">
+    <rdfs:subClassOf rdf:resource="http://www.jyu.fi/ontology#SpecialiteCulinaire"/>
+  </rdf:Description>
+
+  <rdfs:Class rdf:about="http://www.jyu.fi/ontology#Recette">
+  </rdfs:Class>
+
+  <rdf:Description rdf:about="http://www.jyu.fi/ontology#BoissonAlcoolisee">
+    <rdfs:subClassOf rdf:resource="http://www.jyu.fi/ontology#ProduitDuTerroir"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.jyu.fi/ontology#Fromage">
+    <rdfs:subClassOf rdf:resource="http://www.jyu.fi/ontology#ProduitDuTerroir"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.jyu.fi/ontology#Charcuterie">
+    <rdfs:subClassOf rdf:resource="http://www.jyu.fi/ontology#ProduitDuTerroir"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.jyu.fi/ontology#BoissonNonAlcoolisee">
+    <rdfs:subClassOf rdf:resource="http://www.jyu.fi/ontology#ProduitDuTerroir"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.jyu.fi/ontology#ProduitDeLaMer">
+    <rdfs:subClassOf rdf:resource="http://www.jyu.fi/ontology#ProduitDuTerroir"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.jyu.fi/ontology#Vin">
+    <rdfs:subClassOf rdf:resource="http://www.jyu.fi/ontology#BoissonAlcoolisee"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.jyu.fi/ontology#Liqueur">
+    <rdfs:subClassOf rdf:resource="http://www.jyu.fi/ontology#BoissonAlcoolisee"/>
+  </rdf:Description>
+
+  <rdf:Property rdf:about="http://www.jyu.fi/ontology#estOriginaireDe">
+    <rdfs:domain rdf:resource="http://www.jyu.fi/ontology#SpecialiteCulinaire"/>
+    <rdfs:range rdf:resource="http://www.jyu.fi/ontology#Region"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://www.jyu.fi/ontology#aRecette">
+    <rdfs:domain rdf:resource="http://www.jyu.fi/ontology#Dessert"/>
+    <rdfs:domain rdf:resource="http://www.jyu.fi/ontology#Plat"/>
+    <rdfs:range rdf:resource="http://www.jyu.fi/ontology#Recette"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://www.jyu.fi/ontology#aMethodeDePreparation">
+    <rdfs:domain rdf:resource="http://www.jyu.fi/ontology#Recette"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://www.jyu.fi/ontology#aTempsDePreparation">
+    <rdfs:domain rdf:resource="http://www.jyu.fi/ontology#Recette"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://www.jyu.fi/ontology#aIngredient">
+    <rdfs:domain rdf:resource="http://www.jyu.fi/ontology#Recette"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://www.jyu.fi/ontology#aDifficulte">
+    <rdfs:domain rdf:resource="http://www.jyu.fi/ontology#Recette"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://www.jyu.fi/ontology#aTypeDeRegime">
+    <rdfs:domain rdf:resource="http://www.jyu.fi/ontology#Recette"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Property>
+
+  <rdf:Description rdf:about="http://www.jyu.fi/ontology#Bretagne">
+    <rdf:type rdf:resource="http://www.jyu.fi/ontology#Region"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.jyu.fi/ontology#GaletteBretonne">
+    <rdf:type rdf:resource="http://www.jyu.fi/ontology#Plat"/>
+    <ns0:estOriginaireDe rdf:resource="http://www.jyu.fi/ontology#Bretagne"/>
+    <ns0:aRecette>
+      <ns0:Recette rdf:about="http://www.jyu.fi/ontology#RecetteGaletteBretonne">
+        <ns0:aTempsDePreparation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</ns0:aTempsDePreparation>
+        <ns0:aDifficulte>facile</ns0:aDifficulte>
+        <ns0:aTypeDeRegime>vegetarien</ns0:aTypeDeRegime>
+        <ns0:aIngredient>farine de sarrasin</ns0:aIngredient>
+      </ns0:Recette>
+    </ns0:aRecette>
+
+  </rdf:Description>
+
+  <ns0:Dessert rdf:about="http://www.jyu.fi/ontology#KouignAmann">
+    <ns0:estOriginaireDe rdf:resource="http://www.jyu.fi/ontology#Bretagne"/>
+    <ns0:aRecette>
+      <ns0:Recette rdf:about="http://www.jyu.fi/ontology#RecetteKouignAmann">
+        <ns0:aMethodeDePreparation>Pâte levée feuilletée, alternance de couches de beurre et de sucre</ns0:aMethodeDePreparation>
+        <ns0:aTempsDePreparation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</ns0:aTempsDePreparation>
+        <ns0:aIngredient>farine</ns0:aIngredient>
+        <ns0:aIngredient>beurre salé</ns0:aIngredient>
+        <ns0:aIngredient>sucre</ns0:aIngredient>
+        <ns0:aIngredient>levure</ns0:aIngredient>
+        <ns0:aDifficulte>difficile</ns0:aDifficulte>
+        <ns0:aTypeDeRegime>vegetarien</ns0:aTypeDeRegime>
+      </ns0:Recette>
+    </ns0:aRecette>
+
+  </ns0:Dessert>
+
+</rdf:RDF>
