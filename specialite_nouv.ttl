@@ -4,11 +4,11 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> . #Web Ontology Language: La lógica avanzada
 
 
-#un ontologie doit repondre correctment aux question des competences, que apres seront comprober avec les requetes SPARKQL
+#Un ontologie doit repondre correctment aux question des competences, que apres seront comprober avec les requetes SPARKQL
 
-###Classes
 
-#___Class principales____
+
+#____________________Classes principales_____________________
 u:Region a rdfs:Class .
 u:Recette a rdfs:Class .
 u:SpecialiteCulinaire a rdfs:Class; rdfs:subClassOf u:Region .
@@ -17,8 +17,7 @@ u:Plat a rdfs:Class; rdfs:subClassOf u:SpecialiteCulinaire .
 u:Dessert a rdfs:Class; rdfs:subClassOf u:SpecialiteCulinaire .
 
 #___subclass de recettes___
-u:Ingredient a rdfs:Class; rdfs:subClassOf u:Recette .
-u:TypeDeRegime a rdfs:Class; rdfs:subClassOf u:Recette .
+u:typeDeRegime a rdfs:Class; rdfs:subClassOf u:Recette .
 
 
 #___subclass de produit du terroir___
@@ -37,21 +36,28 @@ u:vinRouge a rdfs:Class; rdfs:subClassOf u:Vin .
 u:vinBlanc a rdfs:Class; rdfs:subClassOf u:Vin .
 
 
-#___subclass de liqueur____
+#_______subclass de liqueur____
 
 u:Pastis a rdfs:Class; rdfs:subClassOf u:Liqueur.
 u:whiskey a rdfs:Class; rdfs:subClassOf u:Liqueur .
 u:Brandy a rdfs:Class; rdfs:subClassOf u:Liqueur .
 
-#___subclass de fromage__
+#_____subclass de fromage______
 
 u:laitDeVache a rdfs:Class; rdfs:subClassOf u:Fromage .
 u:laitDeChevre a rdfs:Class; rdfs:subClassOf u:Fromage .
 u:laitDeBrebis a rdfs:Class; rdfs:subClassOf u:Fromage .
 
-#____Proprietés___
+#---------------------
+#j'ai suprimé les ingredients etant que classes, mais maintenant avec 
+#le lait pour le fromage peut etre que se bonne le mettre comme classes les ingredients
+#-----------------
 
-u:originaireDe a owl:ObjectProperty;
+
+
+#_____________________Proprietés________________________
+
+u:estOriginaireDe a owl:ObjectProperty;
     rdfs:domain u:SpecialiteCulinaire;
     rdfs:range u:Region .
 
@@ -65,17 +71,97 @@ u:aDifficulte a owl:DatatypeProperty;
 
 u:sePrepareAvec a owl:ObjectProperty;
     rdfs:domain u:Recette;
-    rdfs:range u:Ingredient .
+    rdfs:range xsd:string .
 
 u:aTempsDePreparation a owl:DatatypeProperty;
     rdfs:domain u:Recette;
-    rdfs:range xsd:integer.
+    rdfs:range xsd:string.
 
 u:aTypeDeRegime a owl:ObjectProperty;
     rdfs:domain u:Recette, u:ProduitDuTerroir;
-    rdfs:range u:TypeDeRegime .
+    rdfs:range u:typeDeRegime .
 
 u:aMethodeDePreparation a owl:DatatypeProperty;
     rdfs:domain u:Recette;
     rdfs:range xsd:string .
 
+#______________________Instance_____________________
+
+
+#___type de regime___
+
+u:Normal a u:typeDeRegime.
+u:Vegetarien a u:typeDeRegime.
+u:Vegan a u:typeDeRegime.
+
+#____Region de Bretagne____
+
+u:Bretagne a u:Region.
+
+u:GaletteBretonne a u:Plat;
+    u:estOriginaireDe u:Bretagne;
+    u:aPourRecette u:RecetteGaletteBretonne.
+
+
+u:RecetteGaletteBretonne a u:Recette;
+    u:aTempsDePreparation "30 min";
+    u:aDifficulte "facile";
+    u:aTypeDeRegime u:Normal;
+    u:sePrepareAvec "farine de sarrasin".
+
+
+u:KouignAmann a u:Dessert ;
+    u:estOriginaireDe u:Bretagne ;
+    u:aPourRecette u:RecetteKouignAmann .
+
+u:RecetteKouignAmann a u:Recette ;
+    u:aMethodeDePreparation "Pâte levée feuilletée, alternance de couches de beurre et de sucre" ;
+    u:aTempsDePreparation "90 min";
+    u:sePrepareAvec "farine",
+    "beurre salé", "sucre", "levure" ;
+    u:aDifficulte "difficile" ;
+    u:aTypeDeRegime u:normal, u:Vegetarien .
+
+
+#_____region de centre val loire_____
+
+u:CentreValLoire a u:Region.
+
+u:TarteTatin a u:Dessert;
+    u:estOriginaireDe u:CentreValLoire ;
+    u:aPourRecette u:RecetteTarteTatin.
+
+u:RecetteTarteTatin a u:Recette;
+    u:aMethodeDePreparation "pomme epuchées au caramel placés dans une lit de pate feuilletée";
+    u:aTempsDePreparation "90 min";
+    u:aDifficulte "facile";
+    u:sePrepareAvec "pommes", "sucre", "beurre", "pate fuilletée", "canele";
+    u:aTypeDeRegime u:normal, u:Vegetarien, u:Vegan.
+
+
+#_____region de normandie______________
+
+u:Normandie a u:Region.
+
+u:CamembertDeNormandie a u:Fromage;
+    u:estOriginaireDe u:Normandie;
+    u:faitAvec u:laitDeVache;
+    u:aTypeDeRegime u:normal, u:Vegetarien.
+
+#_____region de pays de la loire_______
+
+#_____region de ile de france__________
+
+#_____region de hautes de france_________
+
+#_____region de grand est__________________
+
+#_____region de bourgogne franche comté_____
+
+#_____region de nouvelle aquitaine__________
+
+#_____region de auvergne rhone alpes________
+
+#_____region de occitanie____________
+
+#_____region de provence alpes cote d'azur____
