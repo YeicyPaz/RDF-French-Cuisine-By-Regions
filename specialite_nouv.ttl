@@ -1,4 +1,4 @@
- @prefix u: <http://www.gastronomie.fr/ontology#> .
+@prefix u: <http://www.gastronomie.fr/ontology#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>  . #RDF Schema: El cimiento básico
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> . #XML Schema Definition
 @prefix owl: <http://www.w3.org/2002/07/owl#> . #Web Ontology Language: La lógica avanzada
@@ -23,14 +23,31 @@ u:TypeDeRegime a rdfs:Class; rdfs:subClassOf u:Recette .
 
 #___subclass de produit du terroir___
 u:BoissonAlcoolisee a rdfs:Class; rdfs:subClassOf u:ProduitDuTerroir .
-    u:Vin rdfs:subClassOf u:BoissonAlcoolisee .
-    u:Liqueur rdfs:subClassOf u:BoissonAlcoolisee .
+    u:Vin a rdfs:Class; rdfs:subClassOf u:BoissonAlcoolisee .
+    u:Liqueur a rdfs:Class; rdfs:subClassOf u:BoissonAlcoolisee .
 
 u:Fromage a rdfs:Class; rdfs:subClassOf u:ProduitDuTerroir .
 u:Charcuterie a rdfs:Class; rdfs:subClassOf u:ProduitDuTerroir .
 u:BoissonNonAlcoolisee a rdfs:Class; rdfs:subClassOf u:ProduitDuTerroir .
 u:ProduitDeLaMer a rdfs:Class; rdfs:subClassOf u:ProduitDuTerroir .
 
+#___subclass de vin____
+u:vinRose a rdfs:Class; rdfs:subClassOf u:Vin .
+u:vinRouge a rdfs:Class; rdfs:subClassOf u:Vin .
+u:vinBlanc a rdfs:Class; rdfs:subClassOf u:Vin .
+
+
+#___subclass de liqueur____
+
+u:Pastis a rdfs:Class; rdfs:subClassOf u:Liqueur.
+u:whiskey a rdfs:Class; rdfs:subClassOf u:Liqueur .
+u:Brandy a rdfs:Class; rdfs:subClassOf u:Liqueur .
+
+#___subclass de fromage__
+
+u:laitDeVache a rdfs:Class; rdfs:subClassOf u:Fromage .
+u:laitDeChevre a rdfs:Class; rdfs:subClassOf u:Fromage .
+u:laitDeBrebis a rdfs:Class; rdfs:subClassOf u:Fromage .
 
 #____Proprietés___
 
@@ -39,10 +56,10 @@ u:originaireDe a owl:ObjectProperty;
     rdfs:range u:Region .
 
 u:aPourRecette a owl:ObjectProperty;
-    rdfs:domain [a owl:Class ; owl:unionOf (u:Dessert u:Plat)] ;
+    rdfs:domain [ a owl:Class ; owl:unionOf (u:Dessert u:Plat)] ;
     rdfs:range u:Recette .
 
-u:difficulte a owl:DatatypeProperty;
+u:aDifficulte a owl:DatatypeProperty;
     rdfs:domain u:Recette;
     rdfs:range xsd:string .
 
@@ -55,9 +72,10 @@ u:aTempsDePreparation a owl:DatatypeProperty;
     rdfs:range xsd:integer.
 
 u:aTypeDeRegime a owl:ObjectProperty;
-    rdfs:domain u:Recette;
+    rdfs:domain u:Recette, u:ProduitDuTerroir;
     rdfs:range u:TypeDeRegime .
 
 u:aMethodeDePreparation a owl:DatatypeProperty;
     rdfs:domain u:Recette;
     rdfs:range xsd:string .
+
