@@ -165,8 +165,26 @@ u:BrieDeMelun a u:Fromage;
     u:aTypeDeRegime u:Normal, u:Vegetarien.
 
 #_____region de hautes de france_________
+u:HautesDeFrance a u:Region.
+
+u:MoulesDesBouchot  a u:Plat;
+    u:estOriginaireDe u:HautesDeFrance;
+    u:aDifficulte "moyenne";
+    u:sePrepareAvec "moules", "citron", "eau", "beurre";
+    u:aTempsDePreparation "40 min" ;
+    u:aMethodeDePreparation "Nettoyer les moules et le faire boullir pendant 20 minutes, à la fin ajouter de beurre fondue et du citron";
+    u:aTypeDeRegime u:Normal.
+
+
 
 #_____region de grand est__________________
+u:GrandEst a u:Region.
+
+u:Champagne a u:Liqueur;
+    u:estOriginaireDe u:GrandEst;
+    u:aTypeDeRegime u:Normal, u:Vegetarien, u:Vegan.
+
+
 
 #_____region de bourgogne franche comté_____
 
