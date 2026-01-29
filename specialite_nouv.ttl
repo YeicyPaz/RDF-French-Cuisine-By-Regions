@@ -48,11 +48,6 @@ u:laitDeVache a rdfs:Class; rdfs:subClassOf u:Fromage .
 u:laitDeChevre a rdfs:Class; rdfs:subClassOf u:Fromage .
 u:laitDeBrebis a rdfs:Class; rdfs:subClassOf u:Fromage .
 
-#---------------------
-#j'ai suprimé les ingredients etant que classes, mais maintenant avec 
-#le lait pour le fromage peut etre que se bonne le mettre comme classes les ingredients
-#-----------------
-
 
 
 #_____________________Proprietés________________________
@@ -100,8 +95,8 @@ u:Bretagne a u:Region.
 
 u:GaletteBretonne a u:Plat;
     u:estOriginaireDe u:Bretagne;
-    u:aPourRecette u:RecetteGaletteBretonne.
-    u:aTypeDeRegime u:Normal;
+    u:aPourRecette u:RecetteGaletteBretonne;
+    u:aTypeDeRegime u:Normal.
 
 
 u:RecetteGaletteBretonne a u:Recette;
@@ -170,7 +165,7 @@ u:HautesDeFrance a u:Region.
 
 u:MoulesDesBouchot  a u:Plat;
     u:estOriginaireDe u:HautesDeFrance;
-    u:aPourRecette u:RecetteMoulesDesBouchot
+    u:aPourRecette u:RecetteMoulesDesBouchot;
     u:aTypeDeRegime u:Normal.
 
 
@@ -196,23 +191,23 @@ u:Champagne a u:vinBlanc;
 u:BourgogneFrancheCompte a u:Region.
 
 u:BoeufBourguignon a u:Plat;
-    u:typeDeRegime a u:Normal;
+    u:typeDeRegime u:Normal;
     u:aPourRecette a:RecetteBoeufBourguignon;
-    u:estOriginaireDe a u:BourgogneFrancheCompte.
+    u:estOriginaireDe u:BourgogneFrancheCompte.
 
 u:RecetteBoeufBourguignon a u:Recette;
     u:aTempsDePreparation "4 h";
-    u:sePrepareAvec "bœuf","carotte","oignon","vin rouge".
+    u:sePrepareAvec "bœuf","carotte","oignon","vin rouge";
     u:aMethodeDePreparation "Une marinade au vin";
-    u:aDifficulte "facile";
+    u:aDifficulte "facile".
 
 #_____region de nouvelle aquitaine__________
 
 u:NouvelleAquitaine a u:Region.
 
 u:JambonDeBayonne a u:ProduitDuTerroir;
-    u:estOriginaireDe a u:NouvelleAquitaine;
-    u:typeDeRegime a u:Normal.
+    u:estOriginaireDe u:NouvelleAquitaine;
+    u:typeDeRegime u:Normal.
 
 #_____region de auvergne rhone alpes________
 
@@ -222,9 +217,9 @@ u:Genepi a u:BoissonAlcoolisee;
     u:estOriginaireDe u:AuvergneRhoneAlpes.
 
 u:SaintMarcellin a u:Fromage;
-    u:faitAvec a u:laitDeVache;
-    u:estOriginaireDe u:AuvergneRhoneAlpes
-    u:typeDeRegime a u:Vegetarien.
+    u:faitAvec u:laitDeVache;
+    u:estOriginaireDe u:AuvergneRhoneAlpes;
+    u:typeDeRegime u:Vegetarien.
 
 #_____region de occitanie____________
 
@@ -252,8 +247,8 @@ u:ProvenceAlpesCoteDAzur a u:Region.
 
 u:Aioli a u:Plat;
     u:estOriginaireDe u:ProvenceAlpesCoteDAzur;
-    u:aPourRecette a u:RecetteAioli.
-    u:aTypeDeRegime u:Vegetarien;
+    u:aPourRecette u:RecetteAioli;
+    u:aTypeDeRegime u:Vegetarien.
 
 u:RecetteAioli a u:Recette;
     u:aMethodeDePreparation "Pilez l'ail en pommade dans un mortier, ajouter l'oeuf et l'huile, fouetter.";
