@@ -192,7 +192,7 @@ u:BourgogneFrancheCompte a u:Region.
 
 u:BoeufBourguignon a u:Plat;
     u:typeDeRegime u:Normal;
-    u:aPourRecette a:RecetteBoeufBourguignon;
+    u:aPourRecette u:RecetteBoeufBourguignon;
     u:estOriginaireDe u:BourgogneFrancheCompte.
 
 u:RecetteBoeufBourguignon a u:Recette;
