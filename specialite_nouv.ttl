@@ -101,26 +101,26 @@ u:Bretagne a u:Region.
 u:GaletteBretonne a u:Plat;
     u:estOriginaireDe u:Bretagne;
     u:aPourRecette u:RecetteGaletteBretonne.
+    u:aTypeDeRegime u:Normal;
 
 
 u:RecetteGaletteBretonne a u:Recette;
     u:aTempsDePreparation "30 min";
     u:aDifficulte "facile";
-    u:aTypeDeRegime u:Normal;
     u:sePrepareAvec "farine de sarrasin".
 
 
 u:KouignAmann a u:Dessert ;
     u:estOriginaireDe u:Bretagne ;
-    u:aPourRecette u:RecetteKouignAmann .
+    u:aPourRecette u:RecetteKouignAmann ;
+    u:aTypeDeRegime u:Normal, u:Vegetarien .
 
 u:RecetteKouignAmann a u:Recette ;
     u:aMethodeDePreparation "Pâte levée feuilletée, alternance de couches de beurre et de sucre" ;
     u:aTempsDePreparation "90 min";
     u:sePrepareAvec "farine",
     "beurre salé", "sucre", "levure" ;
-    u:aDifficulte "difficile" ;
-    u:aTypeDeRegime u:Normal, u:Vegetarien .
+    u:aDifficulte "difficile" .
 
 
 #_____region de centre val loire_____
@@ -129,14 +129,15 @@ u:CentreValLoire a u:Region.
 
 u:TarteTatin a u:Dessert;
     u:estOriginaireDe u:CentreValLoire ;
-    u:aPourRecette u:RecetteTarteTatin.
+    u:aPourRecette u:RecetteTarteTatin;
+    u:aTypeDeRegime u:Vegetarien.
 
 u:RecetteTarteTatin a u:Recette;
     u:aMethodeDePreparation "pomme epuchées au caramel placés dans une lit de pâte feuilletée";
     u:aTempsDePreparation "90 min";
     u:aDifficulte "facile";
-    u:sePrepareAvec "pommes", "sucre", "beurre", "pâte feuilletée", "cannelle";
-    u:aTypeDeRegime u:Normal, u:Vegetarien.
+    u:sePrepareAvec "pommes", "sucre", "beurre", "pâte feuilletée", "cannelle".
+    
 
 
 #_____region de normandie______________
@@ -146,14 +147,14 @@ u:Normandie a u:Region.
 u:CamembertDeNormandie a u:Fromage;
     u:estOriginaireDe u:Normandie;
     u:faitAvec u:laitDeVache;
-    u:aTypeDeRegime u:Normal, u:Vegetarien.
+    u:aTypeDeRegime u:Vegetarien.
 
 #_____region de pays de la loire_______
 u:PaysDeLaLoire a u:Region .
 
 u:Cointreau a u:Liqueur;
     u:estOriginaireDe u:PaysDeLaLoire;
-    u:aTypeDeRegime u:Normal, u:Vegetarien, u:Vegan.
+    u:aTypeDeRegime u:Vegan.
 
 #_____region de ile de france__________
 
@@ -162,27 +163,32 @@ u:IleDeFrance a u:Region.
 u:BrieDeMelun a u:Fromage;
     u:estOriginaireDe u:IleDeFrance;
     u:faitAvec u:laitDeVache;
-    u:aTypeDeRegime u:Normal, u:Vegetarien.
+    u:aTypeDeRegime u:Vegetarien.
 
 #_____region de hautes de france_________
 u:HautesDeFrance a u:Region.
 
 u:MoulesDesBouchot  a u:Plat;
     u:estOriginaireDe u:HautesDeFrance;
+    u:aPourRecette u:RecetteMoulesDesBouchot
+    u:aTypeDeRegime u:Normal.
+
+
+u:RecetteMoulesDesBouchot a u:Recette;
     u:aDifficulte "moyenne";
     u:sePrepareAvec "moules", "citron", "eau", "beurre";
     u:aTempsDePreparation "40 min" ;
-    u:aMethodeDePreparation "Nettoyer les moules et le faire boullir pendant 20 minutes, à la fin ajouter de beurre fondue et du citron";
-    u:aTypeDeRegime u:Normal.
+    u:aMethodeDePreparation "Nettoyer les moules et le faire boullir pendant 20 minutes, à la fin ajouter de beurre fondue et du citron".
+    
 
 
 
 #_____region de grand est__________________
 u:GrandEst a u:Region.
 
-u:Champagne a u:Liqueur;
+u:Champagne a u:vinBlanc;
     u:estOriginaireDe u:GrandEst;
-    u:aTypeDeRegime u:Normal, u:Vegetarien, u:Vegan.
+    u:aTypeDeRegime u:Vegan.
 
 
 #_____region de bourgogne franche comté_____
