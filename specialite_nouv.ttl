@@ -120,7 +120,7 @@ u:RecetteKouignAmann a u:Recette ;
     u:sePrepareAvec "farine",
     "beurre salé", "sucre", "levure" ;
     u:aDifficulte "difficile" ;
-    u:aTypeDeRegime u:normal, u:Vegetarien .
+    u:aTypeDeRegime u:Normal, u:Vegetarien .
 
 
 #_____region de centre val loire_____
@@ -136,7 +136,7 @@ u:RecetteTarteTatin a u:Recette;
     u:aTempsDePreparation "90 min";
     u:aDifficulte "facile";
     u:sePrepareAvec "pommes", "sucre", "beurre", "pate fuilletée", "canele";
-    u:aTypeDeRegime u:normal, u:Vegetarien, u:Vegan.
+    u:aTypeDeRegime u:Normal, u:Vegetarien, u:Vegan.
 
 
 #_____region de normandie______________
@@ -146,11 +146,24 @@ u:Normandie a u:Region.
 u:CamembertDeNormandie a u:Fromage;
     u:estOriginaireDe u:Normandie;
     u:faitAvec u:laitDeVache;
-    u:aTypeDeRegime u:normal, u:Vegetarien.
+    u:aTypeDeRegime u:Normal, u:Vegetarien.
 
 #_____region de pays de la loire_______
 
+u:PaysDeLaLoire a u:Region .
+
+u:Cointreau a u:Liqueur;
+    u:estOriginaireDe u:PaysDeLaLoire;
+    u:aTypeDeRegime u:Normal, u:Vegetarien, u:Vegan.
+
 #_____region de ile de france__________
+
+u:IleDeFrance a u:Region.
+
+u:BrieDeMelun a u:Fromage;
+    u:estOriginaireDe u:IleDeFrance;
+    u:faitAvec u:laitDeVache;
+    u:aTypeDeRegime u:Normal, u:Vegetarien.
 
 #_____region de hautes de france_________
 
