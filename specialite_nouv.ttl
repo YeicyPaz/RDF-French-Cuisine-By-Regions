@@ -11,7 +11,7 @@
 #____________________Classes principales_____________________
 u:Region a rdfs:Class .
 u:Recette a rdfs:Class .
-u:SpecialiteCulinaire a rdfs:Class; rdfs:subClassOf u:Region .
+u:SpecialiteCulinaire a rdfs:Class.
 u:ProduitDuTerroir a rdfs:Class; rdfs:subClassOf u:SpecialiteCulinaire .
 u:Plat a rdfs:Class; rdfs:subClassOf u:SpecialiteCulinaire .
 u:Dessert a rdfs:Class; rdfs:subClassOf u:SpecialiteCulinaire .
