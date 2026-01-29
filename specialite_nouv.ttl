@@ -185,13 +185,73 @@ u:Champagne a u:Liqueur;
     u:aTypeDeRegime u:Normal, u:Vegetarien, u:Vegan.
 
 
-
 #_____region de bourgogne franche comté_____
+
+u:BourgogneFrancheCompte a u:Region.
+
+u:BoeufBourguignon a u:Plat;
+    u:typeDeRegime a u:Normal;
+    u:aPourRecette a:RecetteBoeufBourguignon;
+    u:estOriginaireDe a u:BourgogneFrancheCompte.
+
+u:RecetteBoeufBourguignon a u:Recette;
+    u:aTempsDePreparation "4 h";
+    u:sePrepareAvec "bœuf","carotte","oignon","vin rouge".
+    u:aMethodeDePreparation "Une marinade au vin";
+    u:aDifficulte "facile";
 
 #_____region de nouvelle aquitaine__________
 
+u:NouvelleAquitaine a u:Region.
+
+u:JambonDeBayonne a u:ProduitDuTerroir;
+    u:estOriginaireDe a u:NouvelleAquitaine;
+    u:typeDeRegime a u:Normal.
+
 #_____region de auvergne rhone alpes________
+
+u:AuvergneRhoneAlpes a u:Region.
+
+u:Genepi a u:BoissonAlcoolisee;
+    u:estOriginaireDe u:AuvergneRhoneAlpes.
+
+u:SaintMarcellin a u:Fromage;
+    u:faitAvec a u:laitDeVache;
+    u:estOriginaireDe u:AuvergneRhoneAlpes
+    u:typeDeRegime a u:Vegetarien.
 
 #_____region de occitanie____________
 
+u:Occitanie a u:Region.
+
+u:Aligot a u:Plat;
+    u:estOriginaireDe u:Occitanie;
+    u:aPourRecette u:RecetteAligot;
+    u:aTypeDeRegime u:Vegetarien.
+
+u:RecetteAligot a u:Recette;
+    u:aMethodeDePreparation "Purée de pommes de terre à laquelle sont mélangés de la crème, du beurre et de la tome de Laguiole. On ajoute un peu d'ail pilé ou haché finement";
+    u:aTempsDePreparation "1 h";
+    u:aDifficulte "facile";
+    u:sePrepareAvec "pommes de terre", "tome fraîche de l'Aubrac", "ail", "crème fraîche épaisse".
+
+
+u:HaricotsTarbais a u:ProduitDuTerroir;
+    u:aTypeDeRegime u:Vegan;
+    u:estOriginaireDe u:Occitanie.
+
+
 #_____region de provence alpes cote d'azur____
+u:ProvenceAlpesCoteDAzur a u:Region.
+
+u:Aioli a u:Plat;
+    u:estOriginaireDe u:ProvenceAlpesCoteDAzur;
+    u:aPourRecette a u:RecetteAioli.
+    u:aTypeDeRegime u:Vegetarien;
+
+u:RecetteAioli a u:Recette;
+    u:aMethodeDePreparation "Pilez l'ail en pommade dans un mortier, ajouter l'oeuf et l'huile, fouetter.";
+    u:aTempsDePreparation "10 min";
+    u:aDifficulte "moyenne";
+    u:sePrepareAvec "ail", "huile d'olive", "œufs".
+
