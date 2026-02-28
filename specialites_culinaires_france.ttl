@@ -2,14 +2,13 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>  . #RDF Schema: El cimiento básico
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> . #XML Schema Definition
 @prefix owl: <http://www.w3.org/2002/07/owl#> . #Web Ontology Language: La lógica avanzada
-
+@prefix r: <http://data.ign.fr/def/geofla#> .
 
 #Un ontologie doit repondre correctment aux question des competences, que apres seront comprober avec les requetes SPARKQL
 
 
 
 #____________________Classes principales_____________________
-u:Region a rdfs:Class .
 u:Recette a rdfs:Class .
 u:SpecialiteCulinaire a rdfs:Class.
 u:ProduitDuTerroir a rdfs:Class; rdfs:subClassOf u:SpecialiteCulinaire .
@@ -91,7 +90,7 @@ u:Vegan a u:typeDeRegime.
 
 #____Region de Bretagne____
 
-u:Bretagne a u:Region.
+u:Bretagne a r:Region;
 
 u:GaletteBretonne a u:Plat;
     u:estOriginaireDe u:Bretagne;
@@ -120,7 +119,7 @@ u:RecetteKouignAmann a u:Recette ;
 
 #_____region de centre val loire_____
 
-u:CentreValLoire a u:Region.
+u:CentreValLoire a r:Region.
 
 u:TarteTatin a u:Dessert;
     u:estOriginaireDe u:CentreValLoire ;
@@ -137,7 +136,7 @@ u:RecetteTarteTatin a u:Recette;
 
 #_____region de normandie______________
 
-u:Normandie a u:Region.
+u:Normandie a r:Region.
 
 u:CamembertDeNormandie a u:Fromage;
     u:estOriginaireDe u:Normandie;
@@ -153,7 +152,7 @@ u:Cointreau a u:Liqueur;
 
 #_____region de ile de france__________
 
-u:IleDeFrance a u:Region.
+u:IleDeFrance a r:Region.
 
 u:BrieDeMelun a u:Fromage;
     u:estOriginaireDe u:IleDeFrance;
@@ -179,7 +178,7 @@ u:RecetteMoulesDesBouchot a u:Recette;
 
 
 #_____region de grand est__________________
-u:GrandEst a u:Region.
+u:GrandEst a r:Region.
 
 u:Champagne a u:vinBlanc;
     u:estOriginaireDe u:GrandEst;
@@ -188,7 +187,7 @@ u:Champagne a u:vinBlanc;
 
 #_____region de bourgogne franche comté_____
 
-u:BourgogneFrancheCompte a u:Region.
+u:BourgogneFrancheCompte a r:Region.
 
 u:BoeufBourguignon a u:Plat;
     u:typeDeRegime u:Normal;
@@ -203,7 +202,7 @@ u:RecetteBoeufBourguignon a u:Recette;
 
 #_____region de nouvelle aquitaine__________
 
-u:NouvelleAquitaine a u:Region.
+u:NouvelleAquitaine a r:Region.
 
 u:JambonDeBayonne a u:ProduitDuTerroir;
     u:estOriginaireDe u:NouvelleAquitaine;
@@ -211,7 +210,7 @@ u:JambonDeBayonne a u:ProduitDuTerroir;
 
 #_____region de auvergne rhone alpes________
 
-u:AuvergneRhoneAlpes a u:Region.
+u:AuvergneRhoneAlpes a r:Region.
 
 u:Genepi a u:BoissonAlcoolisee;
     u:estOriginaireDe u:AuvergneRhoneAlpes.
@@ -223,7 +222,7 @@ u:SaintMarcellin a u:Fromage;
 
 #_____region de occitanie____________
 
-u:Occitanie a u:Region.
+u:Occitanie a r:Region.
 
 u:Aligot a u:Plat;
     u:estOriginaireDe u:Occitanie;
@@ -243,7 +242,7 @@ u:HaricotsTarbais a u:ProduitDuTerroir;
 
 
 #_____region de provence alpes cote d'azur____
-u:ProvenceAlpesCoteDAzur a u:Region.
+u:ProvenceAlpesCoteDAzur a r:Region.
 
 u:Aioli a u:Plat;
     u:estOriginaireDe u:ProvenceAlpesCoteDAzur;
@@ -255,4 +254,3 @@ u:RecetteAioli a u:Recette;
     u:aTempsDePreparation "10 min";
     u:aDifficulte "moyenne";
     u:sePrepareAvec "ail", "huile d'olive", "œufs".
-
