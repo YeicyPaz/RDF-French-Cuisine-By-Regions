@@ -90,7 +90,7 @@ u:Vegan a u:typeDeRegime.
 
 #____Region de Bretagne____
 
-u:Bretagne a r:Region;
+u:Bretagne a r:Region.
 
 u:GaletteBretonne a u:Plat;
     u:estOriginaireDe u:Bretagne;
