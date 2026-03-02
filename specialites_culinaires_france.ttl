@@ -2,30 +2,38 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>  . #RDF Schema: El cimiento básico
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> . #XML Schema Definition
 @prefix owl: <http://www.w3.org/2002/07/owl#> . #Web Ontology Language: La lógica avanzada
+@prefix r: <http://data.ign.fr/def/geofla#> . # Préfixe GEOFLA pour la géographie française
+@prefix schema: <http://schema.org/> . # Vocabulaire standard pour recettes et régimes alimentaires
+@prefix dbo: <http://dbpedia.org/ontology/> . # Ontologie de DBpedia pour les concepts généraux
 
-
-#Un ontologie doit repondre correctment aux question des competences, que apres seront comprober avec les requetes SPARKQL
-
-
+# Un ontologie doit repondre correctment aux question des competences,
+# que apres seront comprober avec les requetes SPARKQL
 
 #____________________Classes principales_____________________
-u:Region a rdfs:Class .
-u:Recette a rdfs:Class .
-u:SpecialiteCulinaire a rdfs:Class.
+u:Recette a rdfs:Class ;
+    owl:equivalentClass schema:Recipe . # Liaison avec Schema.org
+
+u:SpecialiteCulinaire a rdfs:Class ;
+    owl:equivalentClass dbo:Food . # Liaison avec DBpedia
+
 u:ProduitDuTerroir a rdfs:Class; rdfs:subClassOf u:SpecialiteCulinaire .
 u:Plat a rdfs:Class; rdfs:subClassOf u:SpecialiteCulinaire .
-u:Dessert a rdfs:Class; rdfs:subClassOf u:SpecialiteCulinaire .
+u:Dessert a rdfs:Class; rdfs:subClassOf u:SpecialiteCulinaire ;
+    owl:equivalentClass dbo:Dessert .
 
 #___subclass de recettes___
-u:typeDeRegime a rdfs:Class; rdfs:subClassOf u:Recette .
-
+u:typeDeRegime a rdfs:Class; 
+    rdfs:subClassOf u:Recette ;
+    owl:equivalentClass schema:Diet .
 
 #___subclass de produit du terroir___
 u:BoissonAlcoolisee a rdfs:Class; rdfs:subClassOf u:ProduitDuTerroir .
     u:Vin a rdfs:Class; rdfs:subClassOf u:BoissonAlcoolisee .
     u:Liqueur a rdfs:Class; rdfs:subClassOf u:BoissonAlcoolisee .
 
-u:Fromage a rdfs:Class; rdfs:subClassOf u:ProduitDuTerroir .
+u:Fromage a rdfs:Class; rdfs:subClassOf u:ProduitDuTerroir ;
+    owl:equivalentClass dbo:Cheese .
+
 u:Charcuterie a rdfs:Class; rdfs:subClassOf u:ProduitDuTerroir .
 u:BoissonNonAlcoolisee a rdfs:Class; rdfs:subClassOf u:ProduitDuTerroir .
 u:ProduitDeLaMer a rdfs:Class; rdfs:subClassOf u:ProduitDuTerroir .
@@ -35,28 +43,25 @@ u:vinRose a rdfs:Class; rdfs:subClassOf u:Vin .
 u:vinRouge a rdfs:Class; rdfs:subClassOf u:Vin .
 u:vinBlanc a rdfs:Class; rdfs:subClassOf u:Vin .
 
-
 #_______subclass de liqueur____
-
 u:Pastis a rdfs:Class; rdfs:subClassOf u:Liqueur.
 u:whiskey a rdfs:Class; rdfs:subClassOf u:Liqueur .
 u:Brandy a rdfs:Class; rdfs:subClassOf u:Liqueur .
 
 #_____subclass de fromage______
-
 u:laitDeVache a rdfs:Class; rdfs:subClassOf u:Fromage .
 u:laitDeChevre a rdfs:Class; rdfs:subClassOf u:Fromage .
 u:laitDeBrebis a rdfs:Class; rdfs:subClassOf u:Fromage .
 
-
-
 #_____________________Proprietés________________________
 
 u:estOriginaireDe a owl:ObjectProperty;
+    rdfs:subPropertyOf dbo:origin ; # Propieté de DBpedia
     rdfs:domain u:SpecialiteCulinaire;
-    rdfs:range u:Region .
+    rdfs:range r:Region . # Class Region de GEOFLA
 
 u:aPourRecette a owl:ObjectProperty;
+    owl:equivalentProperty schema:recipe ; # ontologie Schema
     rdfs:domain [ a owl:Class ; owl:unionOf (u:Dessert u:Plat)] ;
     rdfs:range u:Recette .
 
@@ -65,45 +70,48 @@ u:aDifficulte a owl:DatatypeProperty;
     rdfs:range xsd:string .
 
 u:sePrepareAvec a owl:ObjectProperty;
+    rdfs:subPropertyOf schema:recipeIngredient ; # ontologie Schema
     rdfs:domain u:Recette;
     rdfs:range xsd:string .
 
 u:aTempsDePreparation a owl:DatatypeProperty;
+    rdfs:subPropertyOf schema:prepTime ; # ontologie Schema
     rdfs:domain u:Recette;
     rdfs:range xsd:string.
 
 u:aTypeDeRegime a owl:ObjectProperty;
+    owl:equivalentProperty schema:suitableForDiet ; # ontologie Schema
     rdfs:domain u:Recette, u:ProduitDuTerroir;
     rdfs:range u:typeDeRegime .
 
 u:aMethodeDePreparation a owl:DatatypeProperty;
+    rdfs:subPropertyOf schema:recipeInstructions ; # ontologie Schema
     rdfs:domain u:Recette;
     rdfs:range xsd:string .
 
+u:faitAvec a owl:ObjectProperty ; 
+    rdfs:subPropertyOf schema:recipeIngredient . # ontologie Schema
+
 #______________________Instance_____________________
 
-
 #___type de regime___
-
 u:Normal a u:typeDeRegime.
-u:Vegetarien a u:typeDeRegime.
-u:Vegan a u:typeDeRegime.
+u:Vegetarien a u:typeDeRegime ; owl:sameAs schema:VegetarianDiet .
+u:Vegan a u:typeDeRegime ; owl:sameAs schema:VeganDiet .
 
 #____Region de Bretagne____
-
-u:Bretagne a u:Region.
+u:Bretagne a r:Region ;
+    rdfs:label "Bretagne"@fr ; owl:sameAs dbr:Brittany .
 
 u:GaletteBretonne a u:Plat;
     u:estOriginaireDe u:Bretagne;
     u:aPourRecette u:RecetteGaletteBretonne;
     u:aTypeDeRegime u:Normal.
 
-
 u:RecetteGaletteBretonne a u:Recette;
     u:aTempsDePreparation "30 min";
     u:aDifficulte "facile";
     u:sePrepareAvec "farine de sarrasin".
-
 
 u:KouignAmann a u:Dessert ;
     u:estOriginaireDe u:Bretagne ;
@@ -113,14 +121,12 @@ u:KouignAmann a u:Dessert ;
 u:RecetteKouignAmann a u:Recette ;
     u:aMethodeDePreparation "Pâte levée feuilletée, alternance de couches de beurre et de sucre" ;
     u:aTempsDePreparation "90 min";
-    u:sePrepareAvec "farine",
-    "beurre salé", "sucre", "levure" ;
+    u:sePrepareAvec "farine", "beurre salé", "sucre", "levure" ;
     u:aDifficulte "difficile" .
 
-
 #_____region de centre val loire_____
-
-u:CentreValLoire a u:Region.
+u:CentreValLoire a r:Region;
+    rdfs:label "Centre-Val de Loire"@fr ; owl:sameAs dbr:Centre-Val_de_Loire .
 
 u:TarteTatin a u:Dessert;
     u:estOriginaireDe u:CentreValLoire ;
@@ -132,12 +138,9 @@ u:RecetteTarteTatin a u:Recette;
     u:aTempsDePreparation "90 min";
     u:aDifficulte "facile";
     u:sePrepareAvec "pommes", "sucre", "beurre", "pâte feuilletée", "cannelle".
-    
-
 
 #_____region de normandie______________
-
-u:Normandie a u:Region.
+u:Normandie a r:Region.
 
 u:CamembertDeNormandie a u:Fromage;
     u:estOriginaireDe u:Normandie;
@@ -145,15 +148,14 @@ u:CamembertDeNormandie a u:Fromage;
     u:aTypeDeRegime u:Vegetarien.
 
 #_____region de pays de la loire_______
-u:PaysDeLaLoire a u:Region .
+u:PaysDeLaLoire a r:Region .
 
 u:Cointreau a u:Liqueur;
     u:estOriginaireDe u:PaysDeLaLoire;
     u:aTypeDeRegime u:Vegan.
 
 #_____region de ile de france__________
-
-u:IleDeFrance a u:Region.
+u:IleDeFrance a r:Region.
 
 u:BrieDeMelun a u:Fromage;
     u:estOriginaireDe u:IleDeFrance;
@@ -161,37 +163,31 @@ u:BrieDeMelun a u:Fromage;
     u:aTypeDeRegime u:Vegetarien.
 
 #_____region de hautes de france_________
-u:HautesDeFrance a u:Region.
+u:HautesDeFrance a r:Region.
 
-u:MoulesDesBouchot  a u:Plat;
+u:MoulesDesBouchot a u:Plat;
     u:estOriginaireDe u:HautesDeFrance;
     u:aPourRecette u:RecetteMoulesDesBouchot;
     u:aTypeDeRegime u:Normal.
-
 
 u:RecetteMoulesDesBouchot a u:Recette;
     u:aDifficulte "moyenne";
     u:sePrepareAvec "moules", "citron", "eau", "beurre";
     u:aTempsDePreparation "40 min" ;
     u:aMethodeDePreparation "Nettoyer les moules et le faire boullir pendant 20 minutes, à la fin ajouter de beurre fondue et du citron".
-    
-
-
 
 #_____region de grand est__________________
-u:GrandEst a u:Region.
+u:GrandEst a r:Region.
 
 u:Champagne a u:vinBlanc;
     u:estOriginaireDe u:GrandEst;
     u:aTypeDeRegime u:Vegan.
 
-
 #_____region de bourgogne franche comté_____
-
-u:BourgogneFrancheCompte a u:Region.
+u:BourgogneFrancheCompte a r:Region.
 
 u:BoeufBourguignon a u:Plat;
-    u:typeDeRegime u:Normal;
+    u:aTypeDeRegime u:Normal;
     u:aPourRecette u:RecetteBoeufBourguignon;
     u:estOriginaireDe u:BourgogneFrancheCompte.
 
@@ -202,16 +198,14 @@ u:RecetteBoeufBourguignon a u:Recette;
     u:aDifficulte "facile".
 
 #_____region de nouvelle aquitaine__________
-
-u:NouvelleAquitaine a u:Region.
+u:NouvelleAquitaine a r:Region.
 
 u:JambonDeBayonne a u:ProduitDuTerroir;
     u:estOriginaireDe u:NouvelleAquitaine;
-    u:typeDeRegime u:Normal.
+    u:aTypeDeRegime u:Normal.
 
 #_____region de auvergne rhone alpes________
-
-u:AuvergneRhoneAlpes a u:Region.
+u:AuvergneRhoneAlpes a r:Region.
 
 u:Genepi a u:BoissonAlcoolisee;
     u:estOriginaireDe u:AuvergneRhoneAlpes.
@@ -219,11 +213,10 @@ u:Genepi a u:BoissonAlcoolisee;
 u:SaintMarcellin a u:Fromage;
     u:faitAvec u:laitDeVache;
     u:estOriginaireDe u:AuvergneRhoneAlpes;
-    u:typeDeRegime u:Vegetarien.
+    u:aTypeDeRegime u:Vegetarien.
 
 #_____region de occitanie____________
-
-u:Occitanie a u:Region.
+u:Occitanie a r:Region.
 
 u:Aligot a u:Plat;
     u:estOriginaireDe u:Occitanie;
@@ -231,19 +224,17 @@ u:Aligot a u:Plat;
     u:aTypeDeRegime u:Vegetarien.
 
 u:RecetteAligot a u:Recette;
-    u:aMethodeDePreparation "Purée de pommes de terre à laquelle sont mélangés de la crème, du beurre et de la tome de Laguiole. On ajoute un peu d'ail pilé ou haché finement";
+    u:aMethodeDePreparation "Purée de pommes de terre à laquelle sont mélangés de la crème, du beurre et de la tome de Laguiole. On ajoute un peu d'ail pilé o haché finement";
     u:aTempsDePreparation "1 h";
     u:aDifficulte "facile";
     u:sePrepareAvec "pommes de terre", "tome fraîche de l'Aubrac", "ail", "crème fraîche épaisse".
-
 
 u:HaricotsTarbais a u:ProduitDuTerroir;
     u:aTypeDeRegime u:Vegan;
     u:estOriginaireDe u:Occitanie.
 
-
 #_____region de provence alpes cote d'azur____
-u:ProvenceAlpesCoteDAzur a u:Region.
+u:ProvenceAlpesCoteDAzur a r:Region.
 
 u:Aioli a u:Plat;
     u:estOriginaireDe u:ProvenceAlpesCoteDAzur;
@@ -255,4 +246,3 @@ u:RecetteAioli a u:Recette;
     u:aTempsDePreparation "10 min";
     u:aDifficulte "moyenne";
     u:sePrepareAvec "ail", "huile d'olive", "œufs".
-
