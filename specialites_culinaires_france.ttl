@@ -101,7 +101,7 @@ u:Vegan a u:typeDeRegime ; owl:sameAs schema:VeganDiet .
 
 #____Region de Bretagne____
 u:Bretagne a r:Region ;
-    rdfs:label "Bretagne"@fr ; owl:sameAs dbr:Brittany .
+    rdfs:label "Bretagne"@fr ; owl:sameAs dbo:Brittany .
 
 u:GaletteBretonne a u:Plat;
     schema:name "Galette Bretonne" ;
@@ -128,7 +128,7 @@ u:RecetteKouignAmann a u:Recette ;
 
 #_____region de centre val loire_____
 u:CentreValLoire a r:Region;
-    rdfs:label "Centre-Val de Loire"@fr ; owl:sameAs dbr:Centre_Val_de_Loire .
+    rdfs:label "Centre-Val de Loire"@fr ; owl:sameAs dbo:Centre_Val_de_Loire .
 
 u:TarteTatin a u:Dessert;
     schema:name "Tarte Tatin" ;
@@ -144,7 +144,7 @@ u:RecetteTarteTatin a u:Recette;
 
 #_____region de normandie______________
 u:Normandie a r:Region;
-    rdfs:label "Normandie"@fr ; owl:sameAs dbr:Normandy .
+    rdfs:label "Normandie"@fr ; owl:sameAs dbo:Normandy .
 
 u:CamembertDeNormandie a u:Fromage;
     schema:name "Camembert de Normandie" ;
@@ -154,7 +154,7 @@ u:CamembertDeNormandie a u:Fromage;
 
 #_____region de pays de la loire_______
 u:PaysDeLaLoire a r:Region;
-     rdfs:label "Pays de la Loire"@fr ; owl:sameAs dbr:Pays_de_la_Loire .
+     rdfs:label "Pays de la Loire"@fr ; owl:sameAs dbo:Pays_de_la_Loire .
 
 u:Cointreau a u:Liqueur;
     schema:name "Cointreau" ;
@@ -163,7 +163,7 @@ u:Cointreau a u:Liqueur;
 
 #_____region de ile de france__________
 u:IleDeFrance a r:Region;
-    rdfs:label "Île-de-France"@fr ; owl:sameAs dbr:Île_de_France .
+    rdfs:label "Île-de-France"@fr ; owl:sameAs dbo:Île_de_France .
 
 u:BrieDeMelun a u:Fromage;
     schema:name "Brie de Melun" ;
@@ -173,7 +173,7 @@ u:BrieDeMelun a u:Fromage;
 
 #_____region de hautes de france_________
 u:HautesDeFrance a r:Region ;
-    rdfs:label "Hauts-de-France"@fr ; owl:sameAs dbr:Hauts_de_France .
+    rdfs:label "Hauts-de-France"@fr ; owl:sameAs dbo:Hauts_de_France .
 
 u:MoulesDesBouchot a u:Plat;
     schema:name "Moules des Bouchot" ;
@@ -189,7 +189,7 @@ u:RecetteMoulesDesBouchot a u:Recette;
 
 #_____region de grand est__________________
 u:GrandEst a r:Region ; 
-    rdfs:label "Grand Est"@fr ; owl:sameAs dbr:Grand_Est .
+    rdfs:label "Grand Est"@fr ; owl:sameAs dbo:Grand_Est .
 
 u:Champagne a u:vinBlanc;
     schema:name "Champagne" ;
@@ -198,7 +198,7 @@ u:Champagne a u:vinBlanc;
 
 #_____region de bourgogne franche comté_____
 u:BourgogneFrancheCompte a r:Region ; 
-    rdfs:label "Bourgogne-Franche-Comté"@fr ; owl:sameAs dbr:Bourgogne_Franche_Comté .
+    rdfs:label "Bourgogne-Franche-Comté"@fr ; owl:sameAs dbo:Bourgogne_Franche_Comté .
 
 u:BoeufBourguignon a u:Plat;
     schema:name "Bœuf Bourguignon" ;
@@ -214,7 +214,7 @@ u:RecetteBoeufBourguignon a u:Recette;
 
 #_____region de nouvelle aquitaine__________
 u:NouvelleAquitaine a r:Region ; 
-    rdfs:label "Nouvelle-Aquitaine"@fr ; owl:sameAs dbr:Nouvelle_Aquitaine .
+    rdfs:label "Nouvelle-Aquitaine"@fr ; owl:sameAs dbo:Nouvelle_Aquitaine .
 
 u:JambonDeBayonne a u:ProduitDuTerroir;
     schema:name "Jambon de Bayonne" ;
@@ -223,7 +223,7 @@ u:JambonDeBayonne a u:ProduitDuTerroir;
 
 #_____region de auvergne rhone alpes________
 u:AuvergneRhoneAlpes a r:Region ; 
-    rdfs:label "Auvergne-Rhône-Alpes"@fr ; owl:sameAs dbr:Auvergne_Rhône_Alpes .
+    rdfs:label "Auvergne-Rhône-Alpes"@fr ; owl:sameAs dbo:Auvergne_Rhône_Alpes .
 
 u:Genepi a u:BoissonAlcoolisee;
     schema:name "Génépi" ;
@@ -237,7 +237,7 @@ u:SaintMarcellin a u:Fromage;
 
 #_____region de occitanie____________
 u:Occitanie a r:Region ; 
-    rdfs:label "Occitanie"@fr ; owl:sameAs dbr:Occitanie .
+    rdfs:label "Occitanie"@fr ; owl:sameAs dbo:Occitanie .
 
 u:Aligot a u:Plat;
     schema:name "Aligot" ;
@@ -258,7 +258,7 @@ u:HaricotsTarbais a u:ProduitDuTerroir;
 
 #_____region de provence alpes cote d'azur____
 u:ProvenceAlpesCoteDAzur a r:Region ; 
-    rdfs:label "Provence-Alpes-Côte d'Azur"@fr ; owl:sameAs dbr:Provence-Alpes-Côte_d_Azur .
+    rdfs:label "Provence-Alpes-Côte d'Azur"@fr ; owl:sameAs dbo:Provence-Alpes-Côte_d_Azur .
 
 u:Aioli a u:Plat;
     schema:name "Aïoli" ;
