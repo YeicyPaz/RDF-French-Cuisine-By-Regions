@@ -104,68 +104,79 @@ u:Bretagne a r:Region ;
     rdfs:label "Bretagne"@fr ; owl:sameAs dbr:Brittany .
 
 u:GaletteBretonne a u:Plat;
+    schema:name "Galette Bretonne" ;
     u:estOriginaireDe u:Bretagne;
     u:aPourRecette u:RecetteGaletteBretonne;
     u:aTypeDeRegime u:Normal.
 
 u:RecetteGaletteBretonne a u:Recette;
-    u:aTempsDePreparation "30 min";
+    u:aTempsDePreparation "PT30M"^^xsd:duration ; # Formato ISO 8601
     u:aDifficulte "facile";
     u:sePrepareAvec "farine de sarrasin".
 
 u:KouignAmann a u:Dessert ;
+    schema:name "Kouign Amann" ;
     u:estOriginaireDe u:Bretagne ;
     u:aPourRecette u:RecetteKouignAmann ;
     u:aTypeDeRegime u:Normal, u:Vegetarien .
 
 u:RecetteKouignAmann a u:Recette ;
     u:aMethodeDePreparation "Pâte levée feuilletée, alternance de couches de beurre et de sucre" ;
-    u:aTempsDePreparation "90 min";
+    u:aTempsDePreparation "PT1H30M"^^xsd:duration ;
     u:sePrepareAvec "farine", "beurre salé", "sucre", "levure" ;
     u:aDifficulte "difficile" .
 
 #_____region de centre val loire_____
 u:CentreValLoire a r:Region;
-    rdfs:label "Centre-Val de Loire"@fr ; owl:sameAs dbr:Centre-Val_de_Loire .
+    rdfs:label "Centre-Val de Loire"@fr ; owl:sameAs dbr:Centre_Val_de_Loire .
 
 u:TarteTatin a u:Dessert;
+    schema:name "Tarte Tatin" ;
     u:estOriginaireDe u:CentreValLoire ;
     u:aPourRecette u:RecetteTarteTatin;
     u:aTypeDeRegime u:Vegetarien.
 
 u:RecetteTarteTatin a u:Recette;
     u:aMethodeDePreparation "pomme epuchées au caramel placés dans une lit de pâte feuilletée";
-    u:aTempsDePreparation "90 min";
+    u:aTempsDePreparation "PT1H30M"^^xsd:duration ;
     u:aDifficulte "facile";
     u:sePrepareAvec "pommes", "sucre", "beurre", "pâte feuilletée", "cannelle".
 
 #_____region de normandie______________
-u:Normandie a r:Region.
+u:Normandie a r:Region;
+    rdfs:label "Normandie"@fr ; owl:sameAs dbr:Normandy .
 
 u:CamembertDeNormandie a u:Fromage;
+    schema:name "Camembert de Normandie" ;
     u:estOriginaireDe u:Normandie;
     u:faitAvec u:laitDeVache;
     u:aTypeDeRegime u:Vegetarien.
 
 #_____region de pays de la loire_______
-u:PaysDeLaLoire a r:Region .
+u:PaysDeLaLoire a r:Region;
+     rdfs:label "Pays de la Loire"@fr ; owl:sameAs dbr:Pays_de_la_Loire .
 
 u:Cointreau a u:Liqueur;
+    schema:name "Cointreau" ;
     u:estOriginaireDe u:PaysDeLaLoire;
     u:aTypeDeRegime u:Vegan.
 
 #_____region de ile de france__________
-u:IleDeFrance a r:Region.
+u:IleDeFrance a r:Region;
+    rdfs:label "Île-de-France"@fr ; owl:sameAs dbr:Île_de_France .
 
 u:BrieDeMelun a u:Fromage;
+    schema:name "Brie de Melun" ;
     u:estOriginaireDe u:IleDeFrance;
     u:faitAvec u:laitDeVache;
     u:aTypeDeRegime u:Vegetarien.
 
 #_____region de hautes de france_________
-u:HautesDeFrance a r:Region.
+u:HautesDeFrance a r:Region ;
+    rdfs:label "Hauts-de-France"@fr ; owl:sameAs dbr:Hauts_de_France .
 
 u:MoulesDesBouchot a u:Plat;
+    schema:name "Moules des Bouchot" ;
     u:estOriginaireDe u:HautesDeFrance;
     u:aPourRecette u:RecetteMoulesDesBouchot;
     u:aTypeDeRegime u:Normal.
@@ -173,76 +184,90 @@ u:MoulesDesBouchot a u:Plat;
 u:RecetteMoulesDesBouchot a u:Recette;
     u:aDifficulte "moyenne";
     u:sePrepareAvec "moules", "citron", "eau", "beurre";
-    u:aTempsDePreparation "40 min" ;
+    u:aTempsDePreparation "PT40M"^^xsd:duration ;
     u:aMethodeDePreparation "Nettoyer les moules et le faire boullir pendant 20 minutes, à la fin ajouter de beurre fondue et du citron".
 
 #_____region de grand est__________________
-u:GrandEst a r:Region.
+u:GrandEst a r:Region ; 
+    rdfs:label "Grand Est"@fr ; owl:sameAs dbr:Grand_Est .
 
 u:Champagne a u:vinBlanc;
+    schema:name "Champagne" ;
     u:estOriginaireDe u:GrandEst;
     u:aTypeDeRegime u:Vegan.
 
 #_____region de bourgogne franche comté_____
-u:BourgogneFrancheCompte a r:Region.
+u:BourgogneFrancheCompte a r:Region ; 
+    rdfs:label "Bourgogne-Franche-Comté"@fr ; owl:sameAs dbr:Bourgogne_Franche_Comté .
 
 u:BoeufBourguignon a u:Plat;
+    schema:name "Bœuf Bourguignon" ;
     u:aTypeDeRegime u:Normal;
     u:aPourRecette u:RecetteBoeufBourguignon;
     u:estOriginaireDe u:BourgogneFrancheCompte.
 
 u:RecetteBoeufBourguignon a u:Recette;
-    u:aTempsDePreparation "4 h";
+    u:aTempsDePreparation "PT4H"^^xsd:duration ;
     u:sePrepareAvec "bœuf","carotte","oignon","vin rouge";
     u:aMethodeDePreparation "Une marinade au vin";
     u:aDifficulte "facile".
 
 #_____region de nouvelle aquitaine__________
-u:NouvelleAquitaine a r:Region.
+u:NouvelleAquitaine a r:Region ; 
+    rdfs:label "Nouvelle-Aquitaine"@fr ; owl:sameAs dbr:Nouvelle_Aquitaine .
 
 u:JambonDeBayonne a u:ProduitDuTerroir;
+    schema:name "Jambon de Bayonne" ;
     u:estOriginaireDe u:NouvelleAquitaine;
     u:aTypeDeRegime u:Normal.
 
 #_____region de auvergne rhone alpes________
-u:AuvergneRhoneAlpes a r:Region.
+u:AuvergneRhoneAlpes a r:Region ; 
+    rdfs:label "Auvergne-Rhône-Alpes"@fr ; owl:sameAs dbr:Auvergne_Rhône_Alpes .
 
 u:Genepi a u:BoissonAlcoolisee;
+    schema:name "Génépi" ;
     u:estOriginaireDe u:AuvergneRhoneAlpes.
 
 u:SaintMarcellin a u:Fromage;
+    schema:name "Saint-Marcellin" ;
     u:faitAvec u:laitDeVache;
     u:estOriginaireDe u:AuvergneRhoneAlpes;
     u:aTypeDeRegime u:Vegetarien.
 
 #_____region de occitanie____________
-u:Occitanie a r:Region.
+u:Occitanie a r:Region ; 
+    rdfs:label "Occitanie"@fr ; owl:sameAs dbr:Occitanie .
 
 u:Aligot a u:Plat;
+    schema:name "Aligot" ;
     u:estOriginaireDe u:Occitanie;
     u:aPourRecette u:RecetteAligot;
     u:aTypeDeRegime u:Vegetarien.
 
 u:RecetteAligot a u:Recette;
     u:aMethodeDePreparation "Purée de pommes de terre à laquelle sont mélangés de la crème, du beurre et de la tome de Laguiole. On ajoute un peu d'ail pilé o haché finement";
-    u:aTempsDePreparation "1 h";
+    u:aTempsDePreparation "PT1H"^^xsd:duration ;
     u:aDifficulte "facile";
     u:sePrepareAvec "pommes de terre", "tome fraîche de l'Aubrac", "ail", "crème fraîche épaisse".
 
 u:HaricotsTarbais a u:ProduitDuTerroir;
+    schema:name "Haricots Tarbais" ;
     u:aTypeDeRegime u:Vegan;
     u:estOriginaireDe u:Occitanie.
 
 #_____region de provence alpes cote d'azur____
-u:ProvenceAlpesCoteDAzur a r:Region.
+u:ProvenceAlpesCoteDAzur a r:Region ; 
+    rdfs:label "Provence-Alpes-Côte d'Azur"@fr ; owl:sameAs dbr:Provence-Alpes-Côte_d_Azur .
 
 u:Aioli a u:Plat;
+    schema:name "Aïoli" ;
     u:estOriginaireDe u:ProvenceAlpesCoteDAzur;
     u:aPourRecette u:RecetteAioli;
     u:aTypeDeRegime u:Vegetarien.
 
 u:RecetteAioli a u:Recette;
     u:aMethodeDePreparation "Pilez l'ail en pommade dans un mortier, ajouter l'oeuf et l'huile, fouetter.";
-    u:aTempsDePreparation "10 min";
+    u:aTempsDePreparation "PT10M"^^xsd:duration ;
     u:aDifficulte "moyenne";
     u:sePrepareAvec "ail", "huile d'olive", "œufs".
