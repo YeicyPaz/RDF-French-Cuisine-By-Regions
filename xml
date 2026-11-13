@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-         xmlns:owl="http://www.w3.org/2002/07/owl#">
-
-  <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#Region">
-  </rdfs:Class>
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:schema="http://schema.org/"
+         xmlns:ns0="http://www.gastronomie.fr/ontology#">
 
   <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#Recette">
+    <owl:equivalentClass rdf:resource="http://schema.org/Recipe"/>
   </rdfs:Class>
 
   <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#SpecialiteCulinaire">
-    <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#Region"/>
+    <owl:equivalentClass rdf:resource="http://dbpedia.org/ontology/Food"/>
   </rdfs:Class>
 
   <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#ProduitDuTerroir">
@@ -23,30 +23,29 @@
 
   <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#Dessert">
     <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#SpecialiteCulinaire"/>
+    <owl:equivalentClass rdf:resource="http://dbpedia.org/ontology/Dessert"/>
   </rdfs:Class>
 
-  <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#Ingredient">
+  <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#typeDeRegime">
     <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#Recette"/>
-  </rdfs:Class>
-
-  <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#TypeDeRegime">
-    <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#Recette"/>
+    <owl:equivalentClass rdf:resource="http://schema.org/Diet"/>
   </rdfs:Class>
 
   <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#BoissonAlcoolisee">
     <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#ProduitDuTerroir"/>
   </rdfs:Class>
 
-  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#Vin">
+  <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#Vin">
     <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#BoissonAlcoolisee"/>
-  </rdf:Description>
+  </rdfs:Class>
 
-  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#Liqueur">
+  <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#Liqueur">
     <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#BoissonAlcoolisee"/>
-  </rdf:Description>
+  </rdfs:Class>
 
   <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#Fromage">
     <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#ProduitDuTerroir"/>
+    <owl:equivalentClass rdf:resource="http://dbpedia.org/ontology/Cheese"/>
   </rdfs:Class>
 
   <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#Charcuterie">
@@ -61,12 +60,50 @@
     <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#ProduitDuTerroir"/>
   </rdfs:Class>
 
-  <owl:ObjectProperty rdf:about="http://www.gastronomie.fr/ontology#originaireDe">
+  <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#vinRose">
+    <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#Vin"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#vinRouge">
+    <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#Vin"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#vinBlanc">
+    <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#Vin"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#Pastis">
+    <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#Liqueur"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#whiskey">
+    <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#Liqueur"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#Brandy">
+    <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#Liqueur"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#laitDeVache">
+    <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#Fromage"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#laitDeChevre">
+    <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#Fromage"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://www.gastronomie.fr/ontology#laitDeBrebis">
+    <rdfs:subClassOf rdf:resource="http://www.gastronomie.fr/ontology#Fromage"/>
+  </rdfs:Class>
+
+  <owl:ObjectProperty rdf:about="http://www.gastronomie.fr/ontology#estOriginaireDe">
+    <rdfs:subPropertyOf rdf:resource="http://dbpedia.org/ontology/origin"/>
     <rdfs:domain rdf:resource="http://www.gastronomie.fr/ontology#SpecialiteCulinaire"/>
-    <rdfs:range rdf:resource="http://www.gastronomie.fr/ontology#Region"/>
+    <rdfs:range rdf:resource="http://data.ign.fr/def/geofla#Region"/>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:about="http://www.gastronomie.fr/ontology#aPourRecette">
+    <owl:equivalentProperty rdf:resource="http://schema.org/recipe"/>
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf>
@@ -88,29 +125,298 @@
     <rdfs:range rdf:resource="http://www.gastronomie.fr/ontology#Recette"/>
   </owl:ObjectProperty>
 
-  <owl:DatatypeProperty rdf:about="http://www.gastronomie.fr/ontology#difficulte">
+  <owl:DatatypeProperty rdf:about="http://www.gastronomie.fr/ontology#aDifficulte">
     <rdfs:domain rdf:resource="http://www.gastronomie.fr/ontology#Recette"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
 
   <owl:ObjectProperty rdf:about="http://www.gastronomie.fr/ontology#sePrepareAvec">
+    <rdfs:subPropertyOf rdf:resource="http://schema.org/recipeIngredient"/>
     <rdfs:domain rdf:resource="http://www.gastronomie.fr/ontology#Recette"/>
-    <rdfs:range rdf:resource="http://www.gastronomie.fr/ontology#Ingredient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:ObjectProperty>
 
   <owl:DatatypeProperty rdf:about="http://www.gastronomie.fr/ontology#aTempsDePreparation">
-    <rdfs:domain rdf:resource="http://www.gastronomie.fr/ontology#Recette"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-  </owl:DatatypeProperty>
-
-  <owl:ObjectProperty rdf:about="http://www.gastronomie.fr/ontology#aTypeDeRegime">
-    <rdfs:domain rdf:resource="http://www.gastronomie.fr/ontology#Recette"/>
-    <rdfs:range rdf:resource="http://www.gastronomie.fr/ontology#TypeDeRegime"/>
-  </owl:ObjectProperty>
-
-  <owl:DatatypeProperty rdf:about="http://www.gastronomie.fr/ontology#aMethodeDePreparation">
+    <rdfs:subPropertyOf rdf:resource="http://schema.org/prepTime"/>
     <rdfs:domain rdf:resource="http://www.gastronomie.fr/ontology#Recette"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
+
+  <owl:ObjectProperty rdf:about="http://www.gastronomie.fr/ontology#aTypeDeRegime">
+    <owl:equivalentProperty rdf:resource="http://schema.org/suitableForDiet"/>
+    <rdfs:domain rdf:resource="http://www.gastronomie.fr/ontology#Recette"/>
+    <rdfs:domain rdf:resource="http://www.gastronomie.fr/ontology#ProduitDuTerroir"/>
+    <rdfs:range rdf:resource="http://www.gastronomie.fr/ontology#typeDeRegime"/>
+  </owl:ObjectProperty>
+
+  <owl:DatatypeProperty rdf:about="http://www.gastronomie.fr/ontology#aMethodeDePreparation">
+    <rdfs:subPropertyOf rdf:resource="http://schema.org/recipeInstructions"/>
+    <rdfs:domain rdf:resource="http://www.gastronomie.fr/ontology#Recette"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:ObjectProperty rdf:about="http://www.gastronomie.fr/ontology#faitAvec">
+    <rdfs:subPropertyOf rdf:resource="http://schema.org/recipeIngredient"/>
+  </owl:ObjectProperty>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#Normal">
+    <rdf:type rdf:resource="http://www.gastronomie.fr/ontology#typeDeRegime"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#Vegetarien">
+    <rdf:type rdf:resource="http://www.gastronomie.fr/ontology#typeDeRegime"/>
+    <owl:sameAs rdf:resource="http://schema.org/VegetarianDiet"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#Vegan">
+    <rdf:type rdf:resource="http://www.gastronomie.fr/ontology#typeDeRegime"/>
+    <owl:sameAs rdf:resource="http://schema.org/VeganDiet"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#Bretagne">
+    <rdf:type rdf:resource="http://data.ign.fr/def/geofla#Region"/>
+    <rdfs:label xml:lang="fr">Bretagne</rdfs:label>
+    <owl:sameAs rdf:resource="http://dbpedia.org/ontology/Brittany"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#GaletteBretonne">
+    <rdf:type rdf:resource="http://www.gastronomie.fr/ontology#Plat"/>
+    <schema:name>Galette Bretonne</schema:name>
+    <ns0:estOriginaireDe rdf:resource="http://www.gastronomie.fr/ontology#Bretagne"/>
+    <ns0:aPourRecette>
+      <ns0:Recette rdf:about="http://www.gastronomie.fr/ontology#RecetteGaletteBretonne">
+        <ns0:aTempsDePreparation rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">PT30M</ns0:aTempsDePreparation>
+        <ns0:aDifficulte>facile</ns0:aDifficulte>
+        <ns0:sePrepareAvec>farine de sarrasin</ns0:sePrepareAvec>
+      </ns0:Recette>
+    </ns0:aPourRecette>
+
+    <ns0:aTypeDeRegime rdf:resource="http://www.gastronomie.fr/ontology#Normal"/>
+  </rdf:Description>
+
+  <ns0:Dessert rdf:about="http://www.gastronomie.fr/ontology#KouignAmann">
+    <schema:name>Kouign Amann</schema:name>
+    <ns0:estOriginaireDe rdf:resource="http://www.gastronomie.fr/ontology#Bretagne"/>
+    <ns0:aPourRecette>
+      <ns0:Recette rdf:about="http://www.gastronomie.fr/ontology#RecetteKouignAmann">
+        <ns0:aMethodeDePreparation>Pâte levée feuilletée, alternance de couches de beurre et de sucre</ns0:aMethodeDePreparation>
+        <ns0:aTempsDePreparation rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">PT1H30M</ns0:aTempsDePreparation>
+        <ns0:sePrepareAvec>farine</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>beurre salé</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>sucre</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>levure</ns0:sePrepareAvec>
+        <ns0:aDifficulte>difficile</ns0:aDifficulte>
+      </ns0:Recette>
+    </ns0:aPourRecette>
+
+    <ns0:aTypeDeRegime rdf:resource="http://www.gastronomie.fr/ontology#Normal"/>
+    <ns0:aTypeDeRegime rdf:resource="http://www.gastronomie.fr/ontology#Vegetarien"/>
+  </ns0:Dessert>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#CentreValLoire">
+    <rdf:type rdf:resource="http://data.ign.fr/def/geofla#Region"/>
+    <rdfs:label xml:lang="fr">Centre-Val de Loire</rdfs:label>
+    <owl:sameAs rdf:resource="http://dbpedia.org/ontology/Centre_Val_de_Loire"/>
+  </rdf:Description>
+
+  <ns0:Dessert rdf:about="http://www.gastronomie.fr/ontology#TarteTatin">
+    <schema:name>Tarte Tatin</schema:name>
+    <ns0:estOriginaireDe rdf:resource="http://www.gastronomie.fr/ontology#CentreValLoire"/>
+    <ns0:aPourRecette>
+      <ns0:Recette rdf:about="http://www.gastronomie.fr/ontology#RecetteTarteTatin">
+        <ns0:aMethodeDePreparation>pomme epuchées au caramel placés dans une lit de pâte feuilletée</ns0:aMethodeDePreparation>
+        <ns0:aTempsDePreparation rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">PT1H30M</ns0:aTempsDePreparation>
+        <ns0:aDifficulte>facile</ns0:aDifficulte>
+        <ns0:sePrepareAvec>pommes</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>sucre</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>beurre</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>pâte feuilletée</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>cannelle</ns0:sePrepareAvec>
+      </ns0:Recette>
+    </ns0:aPourRecette>
+
+    <ns0:aTypeDeRegime rdf:resource="http://www.gastronomie.fr/ontology#Vegetarien"/>
+  </ns0:Dessert>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#Normandie">
+    <rdf:type rdf:resource="http://data.ign.fr/def/geofla#Region"/>
+    <rdfs:label xml:lang="fr">Normandie</rdfs:label>
+    <owl:sameAs rdf:resource="http://dbpedia.org/ontology/Normandy"/>
+  </rdf:Description>
+
+  <ns0:Fromage rdf:about="http://www.gastronomie.fr/ontology#CamembertDeNormandie">
+    <schema:name>Camembert de Normandie</schema:name>
+    <ns0:estOriginaireDe rdf:resource="http://www.gastronomie.fr/ontology#Normandie"/>
+    <ns0:faitAvec rdf:resource="http://www.gastronomie.fr/ontology#laitDeVache"/>
+    <ns0:aTypeDeRegime rdf:resource="http://www.gastronomie.fr/ontology#Vegetarien"/>
+  </ns0:Fromage>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#PaysDeLaLoire">
+    <rdf:type rdf:resource="http://data.ign.fr/def/geofla#Region"/>
+    <rdfs:label xml:lang="fr">Pays de la Loire</rdfs:label>
+    <owl:sameAs rdf:resource="http://dbpedia.org/ontology/Pays_de_la_Loire"/>
+  </rdf:Description>
+
+  <ns0:Liqueur rdf:about="http://www.gastronomie.fr/ontology#Cointreau">
+    <schema:name>Cointreau</schema:name>
+    <ns0:estOriginaireDe rdf:resource="http://www.gastronomie.fr/ontology#PaysDeLaLoire"/>
+    <ns0:aTypeDeRegime rdf:resource="http://www.gastronomie.fr/ontology#Vegan"/>
+  </ns0:Liqueur>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#IleDeFrance">
+    <rdf:type rdf:resource="http://data.ign.fr/def/geofla#Region"/>
+    <rdfs:label xml:lang="fr">Île-de-France</rdfs:label>
+    <owl:sameAs rdf:resource="http://dbpedia.org/ontology/Île_de_France"/>
+  </rdf:Description>
+
+  <ns0:Fromage rdf:about="http://www.gastronomie.fr/ontology#BrieDeMelun">
+    <schema:name>Brie de Melun</schema:name>
+    <ns0:estOriginaireDe rdf:resource="http://www.gastronomie.fr/ontology#IleDeFrance"/>
+    <ns0:faitAvec rdf:resource="http://www.gastronomie.fr/ontology#laitDeVache"/>
+    <ns0:aTypeDeRegime rdf:resource="http://www.gastronomie.fr/ontology#Vegetarien"/>
+  </ns0:Fromage>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#HautesDeFrance">
+    <rdf:type rdf:resource="http://data.ign.fr/def/geofla#Region"/>
+    <rdfs:label xml:lang="fr">Hauts-de-France</rdfs:label>
+    <owl:sameAs rdf:resource="http://dbpedia.org/ontology/Hauts_de_France"/>
+  </rdf:Description>
+
+  <ns0:Plat rdf:about="http://www.gastronomie.fr/ontology#MoulesDesBouchot">
+    <schema:name>Moules des Bouchot</schema:name>
+    <ns0:estOriginaireDe rdf:resource="http://www.gastronomie.fr/ontology#HautesDeFrance"/>
+    <ns0:aPourRecette>
+      <ns0:Recette rdf:about="http://www.gastronomie.fr/ontology#RecetteMoulesDesBouchot">
+        <ns0:aDifficulte>moyenne</ns0:aDifficulte>
+        <ns0:sePrepareAvec>moules</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>citron</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>eau</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>beurre</ns0:sePrepareAvec>
+        <ns0:aTempsDePreparation rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">PT40M</ns0:aTempsDePreparation>
+        <ns0:aMethodeDePreparation>Nettoyer les moules et le faire boullir pendant 20 minutes, à la fin ajouter de beurre fondue et du citron</ns0:aMethodeDePreparation>
+      </ns0:Recette>
+    </ns0:aPourRecette>
+
+    <ns0:aTypeDeRegime rdf:resource="http://www.gastronomie.fr/ontology#Normal"/>
+  </ns0:Plat>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#GrandEst">
+    <rdf:type rdf:resource="http://data.ign.fr/def/geofla#Region"/>
+    <rdfs:label xml:lang="fr">Grand Est</rdfs:label>
+    <owl:sameAs rdf:resource="http://dbpedia.org/ontology/Grand_Est"/>
+  </rdf:Description>
+
+  <ns0:vinBlanc rdf:about="http://www.gastronomie.fr/ontology#Champagne">
+    <schema:name>Champagne</schema:name>
+    <ns0:estOriginaireDe rdf:resource="http://www.gastronomie.fr/ontology#GrandEst"/>
+    <ns0:aTypeDeRegime rdf:resource="http://www.gastronomie.fr/ontology#Vegan"/>
+  </ns0:vinBlanc>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#BourgogneFrancheCompte">
+    <rdf:type rdf:resource="http://data.ign.fr/def/geofla#Region"/>
+    <rdfs:label xml:lang="fr">Bourgogne-Franche-Comté</rdfs:label>
+    <owl:sameAs rdf:resource="http://dbpedia.org/ontology/Bourgogne_Franche_Comté"/>
+  </rdf:Description>
+
+  <ns0:Plat rdf:about="http://www.gastronomie.fr/ontology#BoeufBourguignon">
+    <schema:name>Bœuf Bourguignon</schema:name>
+    <ns0:aTypeDeRegime rdf:resource="http://www.gastronomie.fr/ontology#Normal"/>
+    <ns0:aPourRecette>
+      <ns0:Recette rdf:about="http://www.gastronomie.fr/ontology#RecetteBoeufBourguignon">
+        <ns0:aTempsDePreparation rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">PT4H</ns0:aTempsDePreparation>
+        <ns0:sePrepareAvec>bœuf</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>carotte</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>oignon</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>vin rouge</ns0:sePrepareAvec>
+        <ns0:aMethodeDePreparation>Une marinade au vin</ns0:aMethodeDePreparation>
+        <ns0:aDifficulte>facile</ns0:aDifficulte>
+      </ns0:Recette>
+    </ns0:aPourRecette>
+
+    <ns0:estOriginaireDe rdf:resource="http://www.gastronomie.fr/ontology#BourgogneFrancheCompte"/>
+  </ns0:Plat>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#NouvelleAquitaine">
+    <rdf:type rdf:resource="http://data.ign.fr/def/geofla#Region"/>
+    <rdfs:label xml:lang="fr">Nouvelle-Aquitaine</rdfs:label>
+    <owl:sameAs rdf:resource="http://dbpedia.org/ontology/Nouvelle_Aquitaine"/>
+  </rdf:Description>
+
+  <ns0:ProduitDuTerroir rdf:about="http://www.gastronomie.fr/ontology#JambonDeBayonne">
+    <schema:name>Jambon de Bayonne</schema:name>
+    <ns0:estOriginaireDe rdf:resource="http://www.gastronomie.fr/ontology#NouvelleAquitaine"/>
+    <ns0:aTypeDeRegime rdf:resource="http://www.gastronomie.fr/ontology#Normal"/>
+  </ns0:ProduitDuTerroir>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#AuvergneRhoneAlpes">
+    <rdf:type rdf:resource="http://data.ign.fr/def/geofla#Region"/>
+    <rdfs:label xml:lang="fr">Auvergne-Rhône-Alpes</rdfs:label>
+    <owl:sameAs rdf:resource="http://dbpedia.org/ontology/Auvergne_Rhône_Alpes"/>
+  </rdf:Description>
+
+  <ns0:BoissonAlcoolisee rdf:about="http://www.gastronomie.fr/ontology#Genepi">
+    <schema:name>Génépi</schema:name>
+    <ns0:estOriginaireDe rdf:resource="http://www.gastronomie.fr/ontology#AuvergneRhoneAlpes"/>
+  </ns0:BoissonAlcoolisee>
+
+  <ns0:Fromage rdf:about="http://www.gastronomie.fr/ontology#SaintMarcellin">
+    <schema:name>Saint-Marcellin</schema:name>
+    <ns0:faitAvec rdf:resource="http://www.gastronomie.fr/ontology#laitDeVache"/>
+    <ns0:estOriginaireDe rdf:resource="http://www.gastronomie.fr/ontology#AuvergneRhoneAlpes"/>
+    <ns0:aTypeDeRegime rdf:resource="http://www.gastronomie.fr/ontology#Vegetarien"/>
+  </ns0:Fromage>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#Occitanie">
+    <rdf:type rdf:resource="http://data.ign.fr/def/geofla#Region"/>
+    <rdfs:label xml:lang="fr">Occitanie</rdfs:label>
+    <owl:sameAs rdf:resource="http://dbpedia.org/ontology/Occitanie"/>
+  </rdf:Description>
+
+  <ns0:Plat rdf:about="http://www.gastronomie.fr/ontology#Aligot">
+    <schema:name>Aligot</schema:name>
+    <ns0:estOriginaireDe rdf:resource="http://www.gastronomie.fr/ontology#Occitanie"/>
+    <ns0:aPourRecette>
+      <ns0:Recette rdf:about="http://www.gastronomie.fr/ontology#RecetteAligot">
+        <ns0:aMethodeDePreparation>Purée de pommes de terre à laquelle sont mélangés de la crème, du beurre et de la tome de Laguiole. On ajoute un peu d'ail pilé o haché finement</ns0:aMethodeDePreparation>
+        <ns0:aTempsDePreparation rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">PT1H</ns0:aTempsDePreparation>
+        <ns0:aDifficulte>facile</ns0:aDifficulte>
+        <ns0:sePrepareAvec>pommes de terre</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>tome fraîche de l'Aubrac</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>ail</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>crème fraîche épaisse</ns0:sePrepareAvec>
+      </ns0:Recette>
+    </ns0:aPourRecette>
+
+    <ns0:aTypeDeRegime rdf:resource="http://www.gastronomie.fr/ontology#Vegetarien"/>
+  </ns0:Plat>
+
+  <ns0:ProduitDuTerroir rdf:about="http://www.gastronomie.fr/ontology#HaricotsTarbais">
+    <schema:name>Haricots Tarbais</schema:name>
+    <ns0:aTypeDeRegime rdf:resource="http://www.gastronomie.fr/ontology#Vegan"/>
+    <ns0:estOriginaireDe rdf:resource="http://www.gastronomie.fr/ontology#Occitanie"/>
+  </ns0:ProduitDuTerroir>
+
+  <rdf:Description rdf:about="http://www.gastronomie.fr/ontology#ProvenceAlpesCoteDAzur">
+    <rdf:type rdf:resource="http://data.ign.fr/def/geofla#Region"/>
+    <rdfs:label xml:lang="fr">Provence-Alpes-Côte d'Azur</rdfs:label>
+    <owl:sameAs rdf:resource="http://dbpedia.org/ontology/Provence-Alpes-Côte_d_Azur"/>
+  </rdf:Description>
+
+  <ns0:Plat rdf:about="http://www.gastronomie.fr/ontology#Aioli">
+    <schema:name>Aïoli</schema:name>
+    <ns0:estOriginaireDe rdf:resource="http://www.gastronomie.fr/ontology#ProvenceAlpesCoteDAzur"/>
+    <ns0:aPourRecette>
+      <ns0:Recette rdf:about="http://www.gastronomie.fr/ontology#RecetteAioli">
+        <ns0:aMethodeDePreparation>Pilez l'ail en pommade dans un mortier, ajouter l'oeuf et l'huile, fouetter.</ns0:aMethodeDePreparation>
+        <ns0:aTempsDePreparation rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">PT10M</ns0:aTempsDePreparation>
+        <ns0:aDifficulte>moyenne</ns0:aDifficulte>
+        <ns0:sePrepareAvec>ail</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>huile d'olive</ns0:sePrepareAvec>
+        <ns0:sePrepareAvec>œufs</ns0:sePrepareAvec>
+      </ns0:Recette>
+    </ns0:aPourRecette>
+
+    <ns0:aTypeDeRegime rdf:resource="http://www.gastronomie.fr/ontology#Vegetarien"/>
+  </ns0:Plat>
 
 </rdf:RDF>
